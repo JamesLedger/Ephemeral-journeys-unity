@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
 
     void Die()
 	{
+		Debug.Log("Died!");
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 }

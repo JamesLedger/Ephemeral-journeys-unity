@@ -15,9 +15,18 @@ public class PlayerStats : CharacterStats
 
     #endregion
 
+    private void Update()
+    {
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
     public override void Die()
     {
         base.Die();
+        Debug.Log("stats die");
 
         PlayerManager.instance.KillPlayer();
         

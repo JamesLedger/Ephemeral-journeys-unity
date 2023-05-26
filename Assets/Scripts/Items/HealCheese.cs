@@ -7,12 +7,15 @@ public class HealCheese : Item
 {
     public PlayerStats player;
 
+    private void Awake()
+    {
+        player = PlayerStats.instance;
+    }
+
     public override void Use()
     {
         base.Use();
         Debug.Log("Healing");
-
-        player = PlayerStats.instance;
 
         if (player != null)
             player.Heal(10);
