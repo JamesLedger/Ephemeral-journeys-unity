@@ -21,9 +21,11 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, bool trueDamage = false)
     {
-        damage -= armour.GetValue();
+        if (!trueDamage)
+            damage -= armour.GetValue();
+        
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
         currentHealth -= damage;
@@ -32,6 +34,14 @@ public class CharacterStats : MonoBehaviour
         {
             Die();
         }
+    }
+
+    public void Heal(int healValue)
+    {
+        Debug.Log("Healing");
+        currentHealth += healValue * -1;
+        if (currentHealth > maxHealth)
+            currentHealth = maxHealth;
     }
 
     public virtual void Die()

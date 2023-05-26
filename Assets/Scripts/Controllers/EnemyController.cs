@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(CharacterCombat))]
 public class EnemyController : MonoBehaviour
 {
     public float lookRadius = 10;
+
     Transform target;
     NavMeshAgent agent;
-    CharacterCombat combat;
+    CharacterCombat combatManager;
 
-    // Start is called before the first frame update
     void Start()
     {
         target = PlayerManager.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
-        combat = GetComponent<CharacterCombat>();
+        combatManager = GetComponent<CharacterCombat>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         float distance = Vector3.Distance(target.position, transform.position);
@@ -29,12 +29,7 @@ public class EnemyController : MonoBehaviour
 
             if (distance <= agent.stoppingDistance)
             {
-                // attack
-                CharacterStats targetStats = target.GetComponent<CharacterStats>();
-                if (targetStats != null)
-                {
-                    combat.Attack(targetStats);
-                }
+                combatManager.Attack(Player.instance.playerStats);
 
                 FaceTarget();
             }

@@ -22,6 +22,7 @@ public class Enemy : Interactable
         CharacterCombat playerCombat = playerManager.player.GetComponent<CharacterCombat>();
         if (playerCombat != null)
         {
+            Debug.Log("Enemy Attacked");
             playerCombat.Attack(myStats);
         }
     }
