@@ -18,8 +18,6 @@ public class Player : MonoBehaviour
 	#endregion
 
 
-
-
 	public CharacterStats playerStats;
 
     private void OnCollisionStay(Collision collision)
@@ -39,6 +37,11 @@ public class Player : MonoBehaviour
 
         }
     }
+
+	public void Heal(int healValue)
+    {
+		playerStats.Heal(healValue);
+	}
 
     void Die()
 	{

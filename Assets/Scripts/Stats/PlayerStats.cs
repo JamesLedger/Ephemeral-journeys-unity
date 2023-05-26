@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class PlayerStats : CharacterStats
 {
-    // Start is called before the first frame update
-    void Start()
+    #region Singleton
+
+    public static PlayerStats instance;
+
+    private void Awake()
     {
-        
+        instance = this;
     }
+
+    #endregion
 
     public override void Die()
     {
