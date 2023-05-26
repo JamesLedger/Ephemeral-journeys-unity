@@ -11,11 +11,16 @@ public class PlayerController : MonoBehaviour
     PlayerMotor motor;
     public Interactable focus;
 
+    public GameObject panel;
+    public Transform playerTransform;
+
     // Start is called before the first frame update
     void Start()
     {
         cam = Camera.main;
         motor = GetComponent<PlayerMotor>();
+
+        panel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -41,6 +46,17 @@ public class PlayerController : MonoBehaviour
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
+
+            Vector3 panelPosition = Input.mousePosition;
+            panelPosition.z = 0f; // Set the Z position to 0 to ensure proper visibility.
+
+            // Offset the panel's position to align the top left corner with the mouse position.
+            Vector3 offset = new Vector3(panel.GetComponent<RectTransform>().rect.width / 2f, -panel.GetComponent<RectTransform>().rect.height / 2f, 0f);
+            panel.transform.position = panelPosition + offset;
+
+            panel.SetActive(true);
+
+
 
             if (Physics.Raycast(ray, out hit, 100))
             {
