@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject panel;
     public Transform playerTransform;
+    public bool rightClickMenu = false;
 
     // Start is called before the first frame update
     void Start()
@@ -47,14 +48,18 @@ public class PlayerController : MonoBehaviour
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            Vector3 panelPosition = Input.mousePosition;
-            panelPosition.z = 0f; // Set the Z position to 0 to ensure proper visibility.
+            if (rightClickMenu)
+            {
+                Vector3 panelPosition = Input.mousePosition;
+                panelPosition.z = 0f; // Set the Z position to 0 to ensure proper visibility.
 
-            // Offset the panel's position to align the top left corner with the mouse position.
-            Vector3 offset = new Vector3(panel.GetComponent<RectTransform>().rect.width / 2f, -panel.GetComponent<RectTransform>().rect.height / 2f, 0f);
-            panel.transform.position = panelPosition + offset;
+                // Offset the panel's position to align the top left corner with the mouse position.
+                Vector3 offset = new Vector3(panel.GetComponent<RectTransform>().rect.width / 2f, -panel.GetComponent<RectTransform>().rect.height / 2f, 0f);
+                panel.transform.position = panelPosition + offset;
 
-            panel.SetActive(true);
+                panel.SetActive(true);
+            }
+           
 
 
 
