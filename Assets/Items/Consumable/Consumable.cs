@@ -5,22 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="New Consumable", menuName ="Inventory/Consumable")]
 public class Consumable : Item
 {
-    public CharacterStats player;
-
-    private void Awake()
-    {
-        player = PlayerStats.instance;
-    }
+    public int healValue = 5;
 
     public override void Use()
     {
         base.Use();
-        Debug.Log("Healing");
+        Debug.Log("Using Consumable");
 
-        if (player != null)
-            player.Heal(10);
-        else
-            Debug.Log("Can't find playerstats");
+        Player.instance.Heal(healValue);
 
         RemoveFromInventory();
     }

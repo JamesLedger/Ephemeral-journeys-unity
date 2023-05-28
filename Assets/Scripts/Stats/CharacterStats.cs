@@ -39,7 +39,7 @@ public class CharacterStats : MonoBehaviour
     public void Heal(int healValue)
     {
         Debug.Log("Healing");
-        currentHealth += healValue * -1;
+        currentHealth += healValue;
         if (currentHealth > maxHealth)
             currentHealth = maxHealth;
     }

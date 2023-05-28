@@ -18,9 +18,7 @@ public class PlayerStats : CharacterStats
     private void Update()
     {
         if (currentHealth <= 0)
-        {
             Die();
-        }
     }
 
     public override void Die()

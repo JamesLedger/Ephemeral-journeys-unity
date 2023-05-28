@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3bd82d1412459846888254e2b176532, type: 3}
-  m_Name: HealCheez
+  m_Name: HealCheese
   m_EditorClassIdentifier: 
-  name: HealCheeze
+  name: Heal Cheese
   icon: {fileID: 21300000, guid: 31ac22a02ecbec7469d866c7e09568c3, type: 3}
-  examine: 
-  weight: 0
-  player: {fileID: 0}
+  examine: Smelly cheese
+  weight: 0.2
+  healValue: 20
