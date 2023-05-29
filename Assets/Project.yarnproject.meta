@@ -9,7 +9,9 @@ ScriptedImporter:
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 053561912b1654d80a424bb0696a74ae, type: 3}
   sourceScripts:
+  - {fileID: 6391573757903218779, guid: badb940f3bb2cac4c9ba0a10676d7156, type: 3}
   - {fileID: 6391573757903218779, guid: a3c1f0873520e8f4fb0d731ec07955b3, type: 3}
+  - {fileID: 6391573757903218779, guid: dd67bedc6ca01fb4faac9f097989cb93, type: 3}
   compileErrors: []
   serializedDeclarations: []
   defaultLanguage: en-GB
